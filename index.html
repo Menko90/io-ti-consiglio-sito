@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Io Ti Consiglio · Luce, gas, fibra, subentri e volture</title>
+<meta name="description" content="Subentri, volture, allacci, luce, gas, fibra e telefonia. Chiama o scrivi su WhatsApp: ti aiuto a scegliere e attivare l'offerta giusta. L'analisi della bolletta è gratuita.">
+<meta name="theme-color" content="#0E2240">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E2240'/%3E%3Cpath d='M35.6 68 A28 28 0 1 1 64.4 68 L62 76 H38 Z' fill='%23FFC531'/%3E%3Ccircle cx='50' cy='32' r='5.5' fill='%230E2240'/%3E%3Crect x='45.5' y='41' width='9' height='22' rx='4.5' fill='%230E2240'/%3E%3Crect x='39' y='80' width='22' height='5.5' rx='2.75' fill='%23fff'/%3E%3Crect x='42.5' y='88.5' width='15' height='5.5' rx='2.75' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: pagina scura tipo app. Il cuore è il selettore: tocchi ciò che ti serve e il messaggio WhatsApp si scrive da solo. Il giallo segna solo ciò che è scelto o da toccare. */
+:root{
+  --notte:#0E2240; --notte-su:#1B3A6E; --pannello:#0A1930; --tasto:#16305A; --bordo:#2A4270;
+  --giallo:#FFC531; --bianco:#FFFFFF; --testo:#D5DDEA; --tenue:#93A3BE;
+  --font:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--notte);color:var(--testo);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.sfondo{background:radial-gradient(120% 620px at 80% 0%,var(--notte-su) 0%,var(--notte) 62%)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--bianco);font-weight:700;letter-spacing:-0.025em;line-height:1.04;margin:0;text-wrap:balance}
+p{margin:0}
+.g{color:var(--giallo)}
+a{color:inherit}
+button{font-family:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--bianco);outline-offset:3px}
+
+.logo{font-weight:700;color:var(--bianco);letter-spacing:-0.01em;white-space:nowrap;line-height:1;font-size:21px}
+.logo i{font-style:normal;position:relative;display:inline-block}
+.logo i::after{content:"";position:absolute;left:50%;top:.04em;width:.2em;height:.2em;margin-left:-.1em;border-radius:50%;background:var(--giallo)}
+
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-block:18px 6px}
+header svg{display:block}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:44px;align-items:start;padding-block:26px 56px}
+.hero h1{font-size:clamp(44px,6.4vw,72px)}
+.intro{font-size:clamp(16px,1.9vw,19px);margin-top:14px;max-width:26em}
+.punti{list-style:none;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.punti li{border-top:2px solid var(--giallo);padding-top:10px;display:flex;flex-direction:column;gap:2px}
+.punti b{color:var(--bianco);font-size:15px;font-weight:700}
+.punti span{font-size:13px;color:var(--tenue);line-height:1.35}
+
+/* selettore */
+.scelta{display:flex;flex-direction:column;gap:16px;min-width:0}
+.dove{display:flex;background:var(--pannello);border-radius:16px;padding:5px;gap:4px}
+.dove button{flex:1;border:0;background:transparent;color:var(--tenue);font-weight:600;font-size:15px;border-radius:12px;padding:11px 8px;min-height:46px;cursor:pointer;transition:background .15s,color .15s}
+.dove button[aria-pressed="true"]{background:var(--bianco);color:var(--notte)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{border:0;border-radius:16px;padding:12px 16px;min-height:48px;font-weight:600;font-size:15px;background:var(--tasto);color:var(--bianco);box-shadow:inset 0 0 0 1.5px var(--bordo);cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .12s,transform .12s}
+.chip:active{transform:scale(.97)}
+.chip svg{display:none}
+.chip[aria-pressed="true"]{background:var(--giallo);color:var(--notte);box-shadow:none}
+.chip[aria-pressed="true"] svg{display:block}
+.msg{background:var(--pannello);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:12px}
+.etichetta{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tenue)}
+.bolla{background:var(--tasto);border-radius:18px 18px 6px 18px;padding:14px 16px;font-weight:500;font-size:16px;line-height:1.4;color:var(--bianco);min-height:3.4em}
+.bolla b{color:var(--giallo);font-weight:600}
+.wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--giallo);color:var(--notte);font-weight:700;font-size:17px;text-decoration:none;border-radius:16px;padding:15px 20px;min-height:56px;transition:transform .15s}
+.wa:hover{transform:translateY(-2px)}
+.wa svg{flex-shrink:0}
+.oppure{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--tenue)}
+.oppure b{color:var(--bianco);font-size:15px;user-select:all;font-variant-numeric:tabular-nums}
+.copia{font-weight:600;font-size:12px;color:var(--testo);background:transparent;border:1.5px solid var(--bordo);border-radius:999px;padding:5px 11px;min-height:30px;cursor:pointer}
+
+section{padding-block:52px}
+.scuro{background:var(--pannello)}
+.occhiello{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--giallo);margin-bottom:10px}
+h2{font-size:clamp(30px,4.4vw,44px)}
+.passi{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.passi li{background:var(--tasto);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.passi .n{width:38px;height:38px;border-radius:50%;background:var(--giallo);color:var(--notte);font-weight:700;display:flex;align-items:center;justify-content:center}
+.passi h3{font-size:20px;margin-top:6px}
+.passi p{font-size:15px}
+.regola{max-width:820px}
+.regola blockquote{margin:0;font-size:clamp(28px,4.4vw,46px);font-weight:700;line-height:1.12;letter-spacing:-0.025em;color:var(--bianco);text-wrap:balance}
+.regola p{font-size:17px;margin-top:16px;max-width:36em}
+
+.chiusura{background:var(--giallo);color:var(--notte);padding-block:46px}
+.chiusura .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px}
+.chiusura h2{color:var(--notte)}
+.chiusura p{font-weight:500;margin-top:6px}
+.numerone{font-size:clamp(34px,6vw,52px);font-weight:700;line-height:1;margin-top:12px;user-select:all;font-variant-numeric:tabular-nums}
+.wa.blu{background:var(--notte);color:var(--bianco);padding-inline:28px}
+
+/* riga di trasparenza sotto l'introduzione */
+.nota{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:13.5px;line-height:1.4;color:#C9D3E3;max-width:30em}
+.nota svg{flex-shrink:0;margin-top:1px}
+.numerone a{color:inherit;text-decoration:none}
+
+/* piede: chi sono, numero e privacy; lo spazio in fondo lascia posto alla barra */
+.piede{background:var(--pannello);padding-block:28px calc(28px + 84px + env(safe-area-inset-bottom,0px))}
+.piede .wrap{display:flex;flex-direction:column;gap:10px}
+.piede p{font-size:14px}
+.piede a{color:var(--bianco);font-weight:600}
+.piede .mini{font-size:12.5px;line-height:1.45;color:var(--tenue);max-width:44em}
+
+/* barra fissa in basso, sempre in vista: Chiama e WhatsApp */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:18px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:linear-gradient(to top,rgba(10,25,48,.97) 70%,rgba(10,25,48,0))}
+.barra .due{max-width:520px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.barra .wa{font-size:16px;gap:8px;padding:14px 10px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.wa.bianco{background:var(--bianco);color:var(--notte)}
+@media (prefers-reduced-motion:reduce){.wa,.chip{transition:none}}
+
+@media (max-width:820px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:24px;padding-block:18px 44px}
+  .hero .testi{display:contents}
+  .punti{order:3;margin-top:8px}
+  .passi{grid-template-columns:minmax(0,1fr)}
+  section{padding-block:42px}
+  .chiusura .wa{width:100%}
+}
+</style>
+
+</head>
+<body>
+<div class="sfondo">
+<header>
+  <div class="wrap">
+    <span class="logo" aria-label="io ti consiglio"><i>ı</i>o t<i>ı</i> cons<i>ı</i>gl<i>ı</i>o</span>
+    <svg width="46" height="46" viewBox="0 0 100 100" aria-hidden="true">
+      <g stroke="#FFC531" stroke-width="2.4" stroke-linecap="round"><line x1="50" y1="3" x2="50" y2="9"/><line x1="24" y1="11" x2="28" y2="16"/><line x1="76" y1="11" x2="72" y2="16"/><line x1="9" y1="30" x2="15" y2="33"/><line x1="91" y1="30" x2="85" y2="33"/></g>
+      <path d="M35.6 68 A28 28 0 1 1 64.4 68 L62 76 H38 Z" fill="#FFC531"/><circle cx="50" cy="32" r="5.5" fill="#0E2240"/><rect x="45.5" y="41" width="9" height="22" rx="4.5" fill="#0E2240"/>
+      <rect x="39" y="80" width="22" height="5.5" rx="2.75" fill="#fff"/><rect x="42.5" y="88.5" width="15" height="5.5" rx="2.75" fill="#fff"/>
+    </svg>
+  </div>
+</header>
+
+<main>
+<div class="wrap hero">
+  <div class="testi">
+    <div>
+      <h1>Di cosa hai <span class="g">bisogno?</span></h1>
+      <p class="intro">Tocca quello che ti serve: ti preparo il messaggio e me lo mandi su WhatsApp. Ti rispondo io.</p>
+      <p class="nota"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" fill="none" stroke="#FFC531" stroke-width="2"/><line x1="12" y1="11" x2="12" y2="17" stroke="#FFC531" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="7.5" r="1.3" fill="#FFC531"/></svg><span>Non sono un fornitore: ti aiuto a scegliere e attivare l’offerta giusta.</span></p>
+    </div>
+    <ul class="punti">
+      <li><b>Gratis</b><span>L’analisi della bolletta non costa nulla</span></li>
+      <li><b>Onesto</b><span>Se paghi già il giusto, te lo dico</span></li>
+      <li><b>Senza impegno</b><span>Decidi sempre tu</span></li>
+    </ul>
+  </div>
+
+  <div class="scelta">
+    <div class="dove" role="group" aria-label="Per chi è">
+      <button type="button" id="per-casa" data-dove="casa" aria-pressed="true">Per casa</button>
+      <button type="button" id="per-attivita" data-dove="attivita" aria-pressed="false">Per la mia attività</button>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Cosa ti serve"></div>
+    <div class="msg">
+      <span class="etichetta">Il tuo messaggio</span>
+      <div class="bolla" id="bolla" aria-live="polite"></div>
+      <a class="wa" id="invia" href="https://wa.me/393755049079" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+        Invia su WhatsApp
+      </a>
+      <div class="oppure"><span>oppure scrivi al</span> <b id="numero">375 504 9079</b> <button class="copia" id="copia" type="button">Copia</button></div>
+    </div>
+  </div>
+</div>
+</main>
+</div>
+
+<section class="scuro">
+  <div class="wrap">
+    <p class="occhiello">Come funziona</p>
+    <h2>Tre passaggi, dal telefono.</h2>
+    <ol class="passi">
+      <li><span class="n">1</span><h3>Mi chiami o mi scrivi</h3><p>Dimmi cosa ti serve: subentro, voltura, allaccio o bolletta.</p></li>
+      <li><span class="n">2</span><h3>Mi mandi una foto</h3><p>Della bolletta o dei documenti, su WhatsApp.</p></li>
+      <li><span class="n">3</span><h3>Ti dico cosa conviene</h3><p>Se va già bene così, non cambiamo niente.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap regola">
+    <p class="occhiello">La mia regola</p>
+    <blockquote>Preferisco un cliente contento a un contratto in più.</blockquote>
+    <p>Luce e gas di più fornitori, fibra, telefonia, volture e subentri. Per le attività anche centralini, POS, siti, app, social e pubblicità. Un solo riferimento, su WhatsApp.</p>
+  </div>
+</section>
+
+<div class="chiusura">
+  <div class="wrap">
+    <div>
+      <h2>Hai una bolletta sotto mano?</h2>
+      <p>Mandami la foto: ti dico se paghi il giusto.</p>
+      <div class="numerone"><a href="tel:+393755049079">375 504 9079</a></div>
+    </div>
+    <a class="wa blu" id="invia-fine" href="https://wa.me/393755049079" target="_blank" rel="noopener">Apri WhatsApp</a>
+  </div>
+</div>
+
+<footer class="piede">
+  <div class="wrap">
+    <span class="logo" aria-label="io ti consiglio"><i>ı</i>o t<i>ı</i> cons<i>ı</i>gl<i>ı</i>o</span>
+    <p>Domenico Gangi · <a href="tel:+393755049079">375 504 9079</a></p>
+    <p class="mini">Privacy: questo sito non usa cookie e non ha moduli. I tuoi dati li ricevo solo se mi chiami o mi scrivi.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <div class="due">
+    <a class="wa bianco" id="chiama-barra" href="tel:+393755049079">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8Z"/></svg>
+      Chiama
+    </a>
+    <a class="wa" id="invia-barra" href="https://wa.me/393755049079" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var NUM='393755049079';
+  // voce mostrata sul tasto, testo usato nel messaggio, se riguarda una bolletta da fotografare
+  var VOCI={
+    casa:[['Bolletta luce','bolletta della luce',1],['Bolletta gas','bolletta del gas',1],['Fibra','fibra',0],['Telefonia mobile','telefonia mobile',0],['Voltura o subentro','voltura o subentro',0],['Nuovo allaccio','nuovo allaccio',0],['Problema con il gestore','problema con il gestore',0]],
+    attivita:[['Luce e gas','luce e gas',1],['Fibra e telefonia','fibra e telefonia',0],['Centralino','centralino',0],['POS','POS',0],['Sito web o app','sito web o app',0],['Gestione social','gestione dei social',0],['Pubblicità online','pubblicità online',0]]
+  };
+  var stato={dove:'casa',scelte:{casa:[0],attivita:[]}};
+  // arrivo da un annuncio: l'indirizzo con ?s=subentro (o voltura, allaccio, bolletta, fibra, telefonia, aziende) apre la pagina con quel servizio già scelto
+  var ARRIVI={subentro:['casa',[4]],voltura:['casa',[4]],allaccio:['casa',[5]],bolletta:['casa',[0,1]],fibra:['casa',[2]],telefonia:['casa',[3]],aziende:['attivita',[0]]};
+  try{
+    var arrivo=ARRIVI[(new URLSearchParams(window.location.search).get('s')||'').toLowerCase()];
+    if(arrivo){stato.dove=arrivo[0];stato.scelte[arrivo[0]]=arrivo[1].slice();}
+  }catch(e){}
+  var chips=document.getElementById('chips'),bolla=document.getElementById('bolla');
+  var spunta='<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.200L13 4.800" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function elenco(a){if(a.length<2)return a.join('');return a.slice(0,-1).join(', ')+' e '+a[a.length-1];}
+  function componi(){
+    var v=VOCI[stato.dove],sel=stato.scelte[stato.dove].slice().sort(function(a,b){return a-b;});
+    var chi=stato.dove==='casa'?'per casa':'per la mia attività';
+    if(!sel.length)return {testo:'Ciao, vorrei un consiglio '+chi+'.',html:'Ciao, vorrei un consiglio '+chi+'.'};
+    var nomi=sel.map(function(i){return v[i][1];}),foto=sel.some(function(i){return v[i][2];});
+    var coda=foto?' Ti mando la foto della bolletta.':'';
+    return {testo:'Ciao, vorrei un consiglio '+chi+' su: '+elenco(nomi)+'.'+coda,
+            html:'Ciao, vorrei un consiglio '+chi+' su: '+elenco(nomi.map(function(n){return '<b>'+esc(n)+'</b>';}))+'.'+coda};
+  }
+  function aggiorna(){
+    var m=componi(),url='https://wa.me/'+NUM+'?text='+encodeURIComponent(m.testo);
+    bolla.innerHTML=m.html;
+    ['invia','invia-barra','invia-fine'].forEach(function(id){var a=document.getElementById(id);if(a)a.href=url;});
+  }
+  function disegna(){
+    var v=VOCI[stato.dove],sel=stato.scelte[stato.dove];
+    chips.innerHTML='';
+    v.forEach(function(voce,i){
+      var b=document.createElement('button');b.type='button';b.className='chip';b.id='chip-'+stato.dove+'-'+i;
+      b.setAttribute('aria-pressed',sel.indexOf(i)>-1?'true':'false');
+      b.innerHTML=spunta+'<span>'+esc(voce[0])+'</span>';
+      b.addEventListener('click',function(){var k=sel.indexOf(i);if(k>-1)sel.splice(k,1);else sel.push(i);b.setAttribute('aria-pressed',k>-1?'false':'true');aggiorna();});
+      chips.appendChild(b);
+    });
+    document.querySelectorAll('.dove button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.dove===stato.dove?'true':'false');});
+    aggiorna();
+  }
+  document.querySelectorAll('.dove button').forEach(function(b){b.addEventListener('click',function(){stato.dove=b.dataset.dove;disegna();});});
+  disegna();
+
+  // copia del numero
+  var c=document.getElementById('copia'),n=document.getElementById('numero');
+  c.addEventListener('click',function(){
+    function fatto(){c.textContent='Copiato';setTimeout(function(){c.textContent='Copia';},1800);}
+    function seleziona(){var r=document.createRange();r.selectNodeContents(n);var s=window.getSelection();s.removeAllRanges();s.addRange(r);c.textContent='Selezionato';setTimeout(function(){c.textContent='Copia';},1800);}
+    try{navigator.clipboard.writeText('3755049079').then(fatto,seleziona);}catch(e){seleziona();}
+  });
+})();
+</script>
+</body>
+</html>
